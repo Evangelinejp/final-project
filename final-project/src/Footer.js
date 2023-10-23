@@ -1,6 +1,7 @@
 function Footer() {
     return(
         <footer>
+            <img src={logo} alt="Little Lemon Logo"/>
             <h3>Navigation</h3>
             <ul>
                 <li>Home</li>
