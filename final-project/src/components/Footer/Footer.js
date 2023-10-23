@@ -1,16 +1,12 @@
+import logo from '../../assets/images/Logo.svg';
+import Nav from "../Nav/Nav.js"
+
 function Footer() {
     return(
         <footer>
             <img src={logo} alt="Little Lemon Logo"/>
             <h3>Navigation</h3>
-            <ul>
-                <li>Home</li>
-                <li>About</li>
-                <li>Menu</li>
-                <li>Reservation</li>
-                <li>Order</li>
-                <li>Login</li>
-            </ul>
+            <Nav/>
 
             <h3>Contact</h3>
             <ul>
