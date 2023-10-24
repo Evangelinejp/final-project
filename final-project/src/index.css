@@ -14,18 +14,40 @@ body {
 
 /* Header and navbar stuff */
 header {
-  background-color: teal;
   padding-left: 10px;
   padding-right: 40px;
+  grid-area: header;
 }
 .header-wrapper {
-  grid-area: header;
   margin-bottom: 20px;
   align-items: center;
-  display: flex;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  align-content: space-between;
   justify-content: space-between;
   width: 100%;
   align-items: center;
+}
+
+
+
+
+@media only screen and (max-width: 799px) {
+  .headerHamburger {
+    margin-left: auto;
+  }
+
+  .headerNavBar {
+   display: none;
+  }
+
+  .headerNavBar.responsive {
+    grid-column: span 2;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    width: 100%;
+  }
 }
 
 header nav {
@@ -34,16 +56,104 @@ header nav {
   justify-content: space-evenly;
 }
 
-header nav a {
-  margin-left: 30px;
-  margin-right: 30px;
+nav a {
+    display: inline;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top: 10px;
+    padding-bottom: 10px;
 }
 
+
+header img {
+  display: block;
+}
+
+header a:hover {
+  background-color: #495e57
+}
 
 /* main content */
 .main {
   grid-area: main;
 }
+
+/* footer content */
+footer {
+  grid-area: footer;
+  padding-left: 10px;
+}
+
+.footer-wrapper {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  text-align: center;
+}
+
+footer img {
+  display: block;
+  margin: auto;
+  margin-top: 22px;
+  width: 100px;
+  height: auto;
+}
+
+footer h3 {
+  margin-bottom: 0;
+  padding-bottom: 5px;
+}
+
+footer ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+/* desktop responsiveness code here */
+@media only screen and (min-width: 800px) {
+
+  .header-wrapper {
+    margin-bottom: 20px;
+    align-items: center;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    width: 100%;
+    align-items: center;
+  }
+
+  .headerHamburger {
+    display: none;
+  }
+
+  .headerNavBar {
+    display: inline;
+  }
+
+  .headerNavBar.responsive {
+    display: inline;
+  }
+
+  header nav a {
+    display: inline;
+    padding-left: 25px;
+    padding-right: 25px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+  }
+
+  /*footer*/
+  footer {
+    margin-left: 10%;
+    margin-right: 10%;
+  }
+
+  .break {
+    flex-basis: 100%;
+    height: 0;
+  }
+}
+
 
 
 code {

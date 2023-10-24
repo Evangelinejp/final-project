@@ -1,6 +1,10 @@
+
+
+
 function Nav() {
+
     return(
-        <nav>
+        <nav id="topNav" className="nav">
                 <a href="/">Home</a>
                 <a href="/">About</a>
                 <a href="/">Menu</a>
