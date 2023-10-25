@@ -5,8 +5,7 @@ body {
   margin: 0;
 
 
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+  font-family: -apple-system, BlinkMacSystemFont, 'Karla'
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -14,9 +13,9 @@ body {
 
 /* Header and navbar stuff */
 header {
-  padding-left: 10px;
-  padding-right: 40px;
+  padding-left: 20px;
   grid-area: header;
+  background-color: #edefee;
 }
 .header-wrapper {
   margin-bottom: 20px;
@@ -32,7 +31,10 @@ header {
 
 
 
-@media only screen and (max-width: 799px) {
+@media only screen and (max-width: 960px) {
+  header {
+    padding-right: 40px;
+  }
   .headerHamburger {
     margin-left: auto;
   }
@@ -54,28 +56,51 @@ header nav {
   display: flex;
   flex-flow: row wrap;
   justify-content: space-evenly;
+  height: auto;
 }
 
-nav a {
+header a:hover, a:active {
+  background-color: #495e57;
+  color: white;
+}
+
+header nav a {
+    /*display on mobile*/
     display: inline;
-    padding-left: 10px;
-    padding-right: 10px;
+    padding-left: 20px;
+    padding-right: 20px;
     padding-top: 10px;
     padding-bottom: 10px;
+
+    /*styling*/
+    font-family: "Markazi Text", sans-serif;
+    font-size: 18px;
+    text-decoration: none;
+    font-weight: 500;
+    color: black;
 }
 
 
-header img {
+.headerLogo {
+  display: block;
+  width: 200px;
+  height: 54px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+
+.headerHamburger {
   display: block;
 }
 
-header a:hover {
-  background-color: #495e57
-}
 
 /* main content */
 .main {
   grid-area: main;
+
+  /*default fonts for main*/
+  font-family: "Markazi Text", serif;
+  color: black;
 }
 
 /* footer content */
@@ -93,7 +118,7 @@ footer {
 footer img {
   display: block;
   margin: auto;
-  margin-top: 22px;
+  margin-top: 15px;
   width: 100px;
   height: auto;
 }
@@ -101,16 +126,31 @@ footer img {
 footer h3 {
   margin-bottom: 0;
   padding-bottom: 5px;
+  font-family: "Karla", sans-serif;
+  font-size: 18px;
+  color: #495e57;
 }
 
 footer ul {
   list-style-type: none;
   margin: 0;
   padding: 0;
+  font-family: "Markazi Text", serif;
+  font-size: 16px;
+  color: black;
+}
+
+footer a {
+  color: black;
+  text-decoration: none;
+}
+
+footer a:hover, a:active {
+  color: #f4ce14;
 }
 
 /* desktop responsiveness code here */
-@media only screen and (min-width: 800px) {
+@media only screen and (min-width: 961px) {
 
   .header-wrapper {
     margin-bottom: 20px;
@@ -119,7 +159,6 @@ footer ul {
     flex-wrap: wrap;
     justify-content: space-between;
     width: 100%;
-    align-items: center;
   }
 
   .headerHamburger {
@@ -136,12 +175,13 @@ footer ul {
 
   header nav a {
     display: inline;
-    padding-left: 25px;
-    padding-right: 25px;
-    padding-top: 10px;
-    padding-bottom: 10px;
+    padding-left: 24px;
+    padding-right: 24px;
+    padding-top: 22px;
+    padding-bottom: 22px;
   }
-
+}
+@media only screen and (min-width: 769px) {
   /*footer*/
   footer {
     margin-left: 10%;
