@@ -95,12 +95,22 @@ header nav a {
 
 
 /* main content */
-.main {
+main {
   grid-area: main;
 
   /*default fonts for main*/
-  font-family: "Markazi Text", serif;
+  font-family: "Markazi Text", sans-serif;
   color: black;
+}
+
+main h1 {
+  font-family: "Karla", serif;
+  font-size: 40px;
+}
+
+main h3 {
+  font-family: "Karla", serif;
+  font-size: 18px;
 }
 
 /* footer content */
