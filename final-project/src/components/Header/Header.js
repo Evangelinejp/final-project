@@ -1,4 +1,4 @@
-import Nav from "../Nav/Nav.js"
+import Nav from "./Nav.js"
 import logo from '../../assets/images/Logo.svg';
 import icon from '../../assets/images/icon_hamburger_menu.svg';
 

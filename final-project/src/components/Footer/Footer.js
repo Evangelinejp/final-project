@@ -1,5 +1,5 @@
 import logo from '../../assets/images/block-logo.png';
-import NavFooter from '../NavFooter/NavFooter';
+import NavFooter from './NavFooter';
 
 function Footer() {
     return(
