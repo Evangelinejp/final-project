@@ -145,6 +145,33 @@ main h2 {
   font-weight: 500;
 }
 
+main h3 {
+  font-family: "Markazi Text", sans-serif;
+  font-size: 20px;
+  font-weight: 500;
+}
+
+main h4 {
+  font-family: "Markazi Text", sans-serif;
+  font-size: 20px;
+  font-weight: 500;
+}
+
+main button {
+  border-radius: 8px;
+  border: 0;
+  padding-top: 17px;
+  padding-bottom: 17px;
+  padding-left: 20px;
+  padding-right: 20px;
+  background-color: #f4ce14;
+  color: black;
+  cursor: pointer;
+  margin-top: 8px;
+  margin-bottom: 40px;
+  font-weight: 500;
+}
+
 /* hero content */
 
 .hero {
@@ -189,24 +216,20 @@ main h2 {
   border-radius: 16px;
 }
 
-.hero button {
-  border-radius: 8px;
-  border: 0;
-  padding-top: 17px;
-  padding-bottom: 17px;
-  padding-left: 20px;
-  padding-right: 20px;
-  background-color: #f4ce14;
-  color: black;
-  cursor: pointer;
-  margin-top: 8px;
-  margin-bottom: 40px;
-}
 
-@media only screen and (min-width: 900px) {
+@media only screen and (min-width: 1200px) {
+
+  .hero {
+    padding-left: 15%;
+    padding-right: 15%;
+    justify-content: space-between;
+  }
+
+
   .hero img {
     display: grid;
     width: 400px;
+    margin-right: 0;
   }
 
   .hero div {
@@ -216,11 +239,87 @@ main h2 {
   }
 }
 
+/* specials content */
+.specials {
+  padding-left: 5%;
+  padding-right: 5%;
+  justify-content: space-between;
+}
+
+.specials div {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.specials .card {
+  width: 31%;
+  max-width: 300px;
+  background-color: #edefee;
+  border-radius: 0 0 16px 16px;
+  box-shadow: grey 0 3px 5px;
+}
+
+.specials h3 {
+  margin-left: 10px;
+  margin-right: 10px;
+  margin-bottom: 0;
+  margin-top: 10px;
+  white-space: nowrap;
+}
+
+.specials h4 {
+  color: red;
+  margin-left: 10px;
+  margin-right: 10px;
+  margin-bottom: 0;
+  margin-top: 10px;
+}
+
+.specials h5 {
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+.specials p {
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+.specials img {
+  width: 100%;
+}
+
+.specials button {
+  margin: auto;
+}
+
+@media only screen and (max-width: 1200px) {
+  .card div {
+    display: block;
+  }
+}
+
+@media only screen and (min-width: 1200px) {
+.specials {
+  padding-left: 15%;
+  padding-right: 15%;
+  justify-content: space-between;
+}
+
+.specials .cards {
+  justify-content: space-between;
+}
+
+}
+
 
 /* footer content */
 footer {
   grid-area: footer;
   padding-left: 10px;
+  padding-right: 10px;
+  margin-top: 20px;
 }
 
 .footer-wrapper {
