@@ -4,10 +4,12 @@ import Testimonials from "./Testimonials";
 
 function Home() {
     return(
-        <main className="home">
+        <main className="main">
             <Hero/>
+            <div className="middleSection">
             <Specials/>
             <Testimonials/>
+            </div>
         </main>
     )
 }

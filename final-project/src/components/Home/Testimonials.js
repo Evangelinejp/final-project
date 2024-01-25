@@ -9,7 +9,28 @@ function Testimonials() {
             </div>
             <div className="ratings">
                 <Rating
-                    rating="4/5"
+                    rating="4 out of 5"
+                    image={Mary}
+                    alt="Mary"
+                    name="Mary"
+                    quote="Lorem ipsum dolor sit amet, consectetur adipiscing elit!"/>
+
+                <Rating
+                    rating="4 out of 5"
+                    image={Mary}
+                    alt="Mary"
+                    name="Mary"
+                    quote="Lorem ipsum dolor sit amet, consectetur adipiscing elit!"/>
+
+                <Rating
+                    rating="4 out of 5"
+                    image={Mary}
+                    alt="Mary"
+                    name="Mary"
+                    quote="Lorem ipsum dolor sit amet, consectetur adipiscing elit!"/>
+
+                <Rating
+                    rating="4 out of 5"
                     image={Mary}
                     alt="Mary"
                     name="Mary"
