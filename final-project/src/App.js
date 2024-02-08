@@ -4,6 +4,7 @@ import Layout from "./components/Layout/Layout.js";
 import Home from "./components/Home/Home";
 import NoPage from "./components/NoPage/NoPage";
 import Reservation from "./components/Reservation/Reservation";
+import 'react-datepicker/dist/react-datepicker.css';
 
 function App() {
   return (

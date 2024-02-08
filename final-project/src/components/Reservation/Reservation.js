@@ -10,15 +10,15 @@ function Home() {
     const [date, setDate] = useState("");
     const [time, setTime] = useState("");
     const [guests, setGuests] = useState("1");
-    const [occasion, setOccasion] = useState("");
+    const [location, setLocation] = useState("");
 
 
-    const initialTimes = ["17:00", "18:00", "19:30", "20:00", "21:00", "22:00"];
+    const initialTimes = ["17:00", "18:00", "19:00", "20:00", "21:00", "22:00"];
 
     const [availableTimes, updateAvailabilities] = useReducer(availableUpdate, initialTimes);
 
     const dateChange = (e) => {
-        setDate(e.target.value)
+        setDate(e)
       }
 
     const timeChange = (e) => {
@@ -29,8 +29,13 @@ function Home() {
         setGuests(e.target.value)
     }
 
-    const occasionChange = (e) => {
-        setOccasion(e.target.value)
+    const locationChange = (e) => {
+        setLocation(e.target.value)
+    }
+
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        alert('Reservation succesfully submitted!');
     }
 
 
@@ -43,9 +48,10 @@ function Home() {
                 timeChange={timeChange}
                 guests={guests}
                 guestsChange={guestsChange}
-                occasion={occasion}
-                occasionChange={occasionChange}
+                location={location}
+                locationChange={locationChange}
                 availableTimes={availableTimes}
+                handleSubmit={handleSubmit}
             />
         </main>
     )
