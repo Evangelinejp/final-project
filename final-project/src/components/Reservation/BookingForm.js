@@ -2,10 +2,13 @@ import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 
 function BookingForm(props) {
-
+    console.log(props.availableTimes.times);
 
     return(
-        <form onSubmit={props.handleSubmit} class="bookingForm">
+        <div className="bookingSection">
+        <div><h1>Reserve your spot here!</h1></div>
+        <div>
+        <form onSubmit={props.handleSubmit} className="bookingForm">
             <div>
             <label htmlFor="res-date">What day?</label>
             <DatePicker id="res-date" selected={props.date} onChange={props.dateChange} wrapperClassName="datePicker"/>
@@ -14,7 +17,7 @@ function BookingForm(props) {
             <div>
             <label htmlFor="res-time">What time?</label>
             <select id="res-time" value={props.time} onChange={props.timeChange}>
-                {props.availableTimes.map((e, i) => <option key={i}>{e}</option>)}
+                {props.availableTimes.times.map((e, i) => <option key={i}>{e}</option>)}
             </select>
             </div>
 
@@ -30,9 +33,11 @@ function BookingForm(props) {
                 <option>Outside</option>
             </select>
             </div>
-            
-            <input class="submit" type="submit" value="Make Your Reservation"/>
+
+            <input className="submit" type="submit" value="Make Your Reservation!"/>
         </form>
+        </div>
+        </div>
     )
 }
 

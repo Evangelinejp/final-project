@@ -480,6 +480,25 @@ main button {
 }
 
 /* booking form */
+.bookingSection {
+  padding-top: 5px;
+  padding-bottom: 5px;
+  padding-left: 20%;
+  padding-right: 20%;
+  background-color: #495e57;
+}
+
+.bookingSection h1 {
+  color: #f4ce14;
+  margin-bottom: 5px;
+}
+
+.bookingMap {
+  width: 100%;
+  max-height: 300px;
+  object-fit: cover;
+}
+
 .bookingForm {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -492,6 +511,7 @@ main button {
 
 .bookingForm label {
   font-family: "Karla", sans-serif;
+  color:#edefee;
   font-size: 16px;
 }
 
@@ -499,14 +519,32 @@ main button {
   border-radius: 4px;
   margin-left: 10px;
   margin-right: 10px;
+  max-width: 400px;
+  background-color: #edefee;
+  border-style: none;
+}
+
+.bookingForm input[type=text]:focus, .bookingForm input[type=number]:focus {
+  outline-style: solid;
+  outline-width: 2px;
+  outline-color: #ee9972;
 }
 
 .bookingForm .submit {
   border-radius: 0;
   grid-column: 1 / span 2;
   align-items: center;
-  margin-left: 20%;
-  margin-right: 20%;
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 18px;
+  border-radius: 8px;
+  border-style: none;
+  padding-top: 7px;
+  padding-bottom: 7px;
+  margin-top: 10px;
+  background-color: #f4ce14;
+  font-weight: bold;
 }
 
 

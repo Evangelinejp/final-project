@@ -1,24 +1,33 @@
 import React, { useState, useReducer } from 'react';
 import BookingForm from "./BookingForm.js";
+import LemonMap from "./LemonMap.js";
+import fakeAPI from './Script.js';
 
 const availableUpdate = (state, action) => {
-    return {times: state.times};
+    return {
+        ...state,
+        times: generateAvailabilities(action.date)
+    };
 }
 
-function Home() {
+const generateAvailabilities = (date) => {
+    return fakeAPI.fetchAPI(date);
+}
 
-    const [date, setDate] = useState("");
+function Reservation() {
+
+    const [date, setDate] = useState(new Date());
     const [time, setTime] = useState("");
     const [guests, setGuests] = useState("1");
     const [location, setLocation] = useState("");
 
-
-    const initialTimes = ["17:00", "18:00", "19:00", "20:00", "21:00", "22:00"];
-
-    const [availableTimes, updateAvailabilities] = useReducer(availableUpdate, initialTimes);
+    const [availableTimes, updateAvailabilities] = useReducer(availableUpdate, {times: generateAvailabilities(date)});
 
     const dateChange = (e) => {
-        setDate(e)
+        setDate(e);
+        updateAvailabilities({
+            date: e
+        });
       }
 
     const timeChange = (e) => {
@@ -38,9 +47,9 @@ function Home() {
         alert('Reservation succesfully submitted!');
     }
 
-
     return(
         <main className="main">
+            <LemonMap/>
             <BookingForm
                 date={date}
                 dateChange={dateChange}
@@ -57,4 +66,4 @@ function Home() {
     )
 }
 
-export default Home;
+export default Reservation;
