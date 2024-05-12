@@ -4,6 +4,7 @@ import Layout from "./components/Layout/Layout.js";
 import Home from "./components/Home/Home";
 import NoPage from "./components/NoPage/NoPage";
 import Reservation from "./components/Reservation/Reservation";
+import ConfirmedReservation from "./components/Reservation/ConfirmedReservation";
 import 'react-datepicker/dist/react-datepicker.css';
 
 function App() {
@@ -13,6 +14,7 @@ function App() {
         <Route path="/" element={<Layout/>}>;
           <Route index element={<Home/>}/>;
           <Route path="reservation" element={<Reservation/>}/>;
+          <Route path="confirmedreservation" element={<ConfirmedReservation/>}/>;
           <Route path="*" element={<NoPage/>}/>;
         </Route>
       </Routes>

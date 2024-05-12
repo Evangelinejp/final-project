@@ -497,11 +497,11 @@ main button {
   width: 100%;
   max-height: 300px;
   object-fit: cover;
+  display: block;
 }
 
 .bookingForm {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
 }
 
 .bookingForm > div {
@@ -515,11 +515,13 @@ main button {
   font-size: 16px;
 }
 
+
 .bookingForm input, select {
   border-radius: 4px;
   margin-left: 10px;
   margin-right: 10px;
   max-width: 400px;
+  width: 90%;
   background-color: #edefee;
   border-style: none;
 }
@@ -532,7 +534,6 @@ main button {
 
 .bookingForm .submit {
   border-radius: 0;
-  grid-column: 1 / span 2;
   align-items: center;
   width: 100%;
   margin-left: auto;
@@ -545,6 +546,56 @@ main button {
   margin-top: 10px;
   background-color: #f4ce14;
   font-weight: bold;
+}
+
+/* error messages */
+.formErrorMessage {
+  color:lightcoral;
+}
+
+@media only screen and (min-width: 700px) {
+  .bookingForm {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .bookingForm .submit {
+    grid-column: 1 / span 2;
+  }
+}
+
+/* confirmation page */
+.confirmation .banner {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  margin-bottom: 0;
+  display: block;
+}
+.check {
+  display: grid;
+  grid-template-columns: auto;
+  grid-template-rows: auto;
+  justify-items: center;
+
+  box-sizing: border-box;
+  margin-left: auto;
+  margin-right: auto;
+
+  background-color: #edefee;
+
+}
+
+.check img {
+  width: 300px;
+  height: 300px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.check h1 {
+  font-size: 40px;
+  font-family: "Karla", serif;
+  color: #43A047
 }
 
 

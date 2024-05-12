@@ -1,8 +1,38 @@
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 
+function TimeErrorMessage() {
+    return(
+        <div className="formErrorMessage">
+            <p>Please select a time.</p>
+        </div>
+    )
+}
+
+function NumberNotSelected() {
+    return (
+        <div className="formErrorMessage">
+            <p>Please select a number.</p>
+        </div>
+    )
+}
+
+function LocationNotSelected() {
+    return (
+        <div className="formErrorMessage">
+            <p>Please select a location.</p>
+        </div>
+    )
+}
+
+
 function BookingForm(props) {
-    console.log(props.availableTimes.times);
+
+    function isFormValid() {
+        return(
+            (props.time !== "Select a time" && props.guests !== "" && props.location !== "")
+        )
+    }
 
     return(
         <div className="bookingSection">
@@ -19,11 +49,13 @@ function BookingForm(props) {
             <select id="res-time" value={props.time} onChange={props.timeChange}>
                 {props.availableTimes.times.map((e, i) => <option key={i}>{e}</option>)}
             </select>
+            {props.time === "Select a time" ? <TimeErrorMessage/> : null}
             </div>
 
             <div>
             <label htmlFor="guests">Who's coming for dinner?</label>
             <input type="number" min="1" max="10" id="guests" value={props.guests} onChange={props.guestsChange}/>
+            {props.guests === "" ? <NumberNotSelected/> : null}
             </div>
 
             <div>
@@ -32,9 +64,10 @@ function BookingForm(props) {
                 <option>Inside</option>
                 <option>Outside</option>
             </select>
+            {props.location === "" ? <LocationNotSelected/> : null}
             </div>
 
-            <input className="submit" type="submit" value="Make Your Reservation!"/>
+            <input className="submit" type="submit" value="Make Your Reservation!" disabled={!isFormValid()} />
         </form>
         </div>
         </div>

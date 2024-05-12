@@ -2,6 +2,11 @@ import React, { useState, useReducer } from 'react';
 import BookingForm from "./BookingForm.js";
 import LemonMap from "./LemonMap.js";
 import fakeAPI from './Script.js';
+import { useNavigate } from 'react-router-dom';
+
+const generateAvailabilities = (date) => {
+    return fakeAPI.fetchAPI(date);
+}
 
 const availableUpdate = (state, action) => {
     return {
@@ -10,15 +15,13 @@ const availableUpdate = (state, action) => {
     };
 }
 
-const generateAvailabilities = (date) => {
-    return fakeAPI.fetchAPI(date);
-}
-
 function Reservation() {
 
+    const navigate = useNavigate();
+
     const [date, setDate] = useState(new Date());
-    const [time, setTime] = useState("");
-    const [guests, setGuests] = useState("1");
+    const [time, setTime] = useState("Select a time");
+    const [guests, setGuests] = useState("");
     const [location, setLocation] = useState("");
 
     const [availableTimes, updateAvailabilities] = useReducer(availableUpdate, {times: generateAvailabilities(date)});
@@ -44,8 +47,12 @@ function Reservation() {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        alert('Reservation succesfully submitted!');
+        if(fakeAPI.submitAPI(e)) {
+            navigate('/confirmedreservation');
+        }
     }
+
+
 
     return(
         <main className="main">
