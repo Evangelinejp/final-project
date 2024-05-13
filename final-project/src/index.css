@@ -217,7 +217,11 @@ main button {
   cursor: pointer;
   margin-top: 8px;
   margin-bottom: 40px;
-  font-weight: 500;
+  font-weight: bold;
+}
+
+main button:hover, main button:active {
+  background-color: #ffd817;
 }
 
 /* hero content */
@@ -549,12 +553,20 @@ main button {
   font-weight: bold;
 }
 
+.bookingForm .submit:hover, .bookingForm .submit:active {
+  background-color: #ffd817;
+}
+
 /* error messages */
 .formErrorMessage {
   color:lightcoral;
   position: absolute;
   padding-top: 25px;
   padding-left: 10px;
+}
+
+.bookingForm .error {
+  border: 1px solid #eb516d;
 }
 
 @media only screen and (min-width: 700px) {

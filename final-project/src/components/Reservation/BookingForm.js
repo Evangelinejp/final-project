@@ -58,7 +58,7 @@ function BookingForm(props) {
 
             <div>
             <label htmlFor="res-time">What time?</label>
-            <select id="res-time" value={props.time.value} onChange={props.timeChange}>
+            <select id="res-time" value={props.time.value} onChange={props.timeChange} className={(props.time.value === "Select a time" && props.time.isTouched === true) ? 'error' : ''}>
                 {props.availableTimes.times.map((e, i) => <option key={i}>{e}</option>)}
             </select>
             {(props.time.value === "Select a time" && props.time.isTouched === true) ? <TimeNotSelected/> : null}
@@ -66,20 +66,20 @@ function BookingForm(props) {
 
             <div>
             <label htmlFor="guests">Who's coming for dinner?</label>
-            <input type="number" min="1" max="10" id="guests" value={props.guests.value} onChange={props.guestsChange}/>
+            <input type="number" min="1" max="10" id="guests" value={props.guests.value} onChange={props.guestsChange} className={(props.guests.value === "" && props.guests.isTouched === true) ? 'error' : ''}/>
             {(props.guests.value === "" && props.guests.isTouched === true)? <NumberNotSelected/> : null}
             </div>
 
             <div>
             <label htmlFor="location">Where do you wanna eat?</label>
-            <select id="location" value={props.location.value} onChange={props.locationChange}>
+            <select id="location" value={props.location.value} onChange={props.locationChange} className={(props.location.value === "" && props.location.isTouched === true) ? 'error' : ''}>
                 <option>Inside</option>
                 <option>Outside</option>
             </select>
             {(props.location.value === "" && props.location.isTouched === true) ? <LocationNotSelected/> : null}
             </div>
 
-            <input className="submit" type="submit" value="Make Your Reservation!" />
+            <input className="submit" type="submit" value="Make Your Reservation!" aria-label="On Click" />
         </form>
         </div>
         </div>
