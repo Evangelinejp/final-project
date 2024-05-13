@@ -520,6 +520,7 @@ main button {
   border-radius: 4px;
   margin-left: 10px;
   margin-right: 10px;
+  margin-bottom: 15px;
   max-width: 400px;
   width: 90%;
   background-color: #edefee;
@@ -551,6 +552,9 @@ main button {
 /* error messages */
 .formErrorMessage {
   color:lightcoral;
+  position: absolute;
+  padding-top: 25px;
+  padding-left: 10px;
 }
 
 @media only screen and (min-width: 700px) {

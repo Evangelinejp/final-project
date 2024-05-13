@@ -62,3 +62,12 @@ test('times get updated properly', () => {
     )).toEqual(["Select a time", "17:00", "18:00", "19:00", "19:30", "20:00", "20:30", "21:00", "21:30", "22:30", "23:30"]);
 
 })
+
+test('form is validated', () => {
+    render(<Reservation/>);
+    const button = screen.getByLabelText("Make Your Reservation!");
+    fireEvent.click(button);
+
+    const errorMessage = screen.getByText("Please select a time.");
+    expect(errorMessage).toBeInTheDocument;
+})

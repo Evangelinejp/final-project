@@ -1,7 +1,7 @@
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 
-function TimeErrorMessage() {
+function TimeNotSelected() {
     return(
         <div className="formErrorMessage">
             <p>Please select a time.</p>
@@ -30,15 +30,27 @@ function BookingForm(props) {
 
     function isFormValid() {
         return(
-            (props.time !== "Select a time" && props.guests !== "" && props.location !== "")
+            (props.time.value !== "Select a time" && props.guests.value !== "" && props.location.value !== "")
         )
+    }
+
+    const submitForm = (e) => {
+        e.preventDefault();
+        if(isFormValid()) {
+            props.handleSubmit(e);
+        }
+        else {
+            props.timeChange({target: {value: props.time.value}});
+            props.guestsChange({target: {value: props.guests.value}});
+            props.locationChange({target: {value: props.location.value}});
+        }
     }
 
     return(
         <div className="bookingSection">
         <div><h1>Reserve your spot here!</h1></div>
         <div>
-        <form onSubmit={props.handleSubmit} className="bookingForm">
+        <form onSubmit={submitForm} className="bookingForm">
             <div>
             <label htmlFor="res-date">What day?</label>
             <DatePicker id="res-date" selected={props.date} onChange={props.dateChange} wrapperClassName="datePicker"/>
@@ -46,28 +58,28 @@ function BookingForm(props) {
 
             <div>
             <label htmlFor="res-time">What time?</label>
-            <select id="res-time" value={props.time} onChange={props.timeChange}>
+            <select id="res-time" value={props.time.value} onChange={props.timeChange}>
                 {props.availableTimes.times.map((e, i) => <option key={i}>{e}</option>)}
             </select>
-            {props.time === "Select a time" ? <TimeErrorMessage/> : null}
+            {(props.time.value === "Select a time" && props.time.isTouched === true) ? <TimeNotSelected/> : null}
             </div>
 
             <div>
             <label htmlFor="guests">Who's coming for dinner?</label>
-            <input type="number" min="1" max="10" id="guests" value={props.guests} onChange={props.guestsChange}/>
-            {props.guests === "" ? <NumberNotSelected/> : null}
+            <input type="number" min="1" max="10" id="guests" value={props.guests.value} onChange={props.guestsChange}/>
+            {(props.guests.value === "" && props.guests.isTouched === true)? <NumberNotSelected/> : null}
             </div>
 
             <div>
             <label htmlFor="location">Where do you wanna eat?</label>
-            <select id="location" value={props.location} onChange={props.locationChange}>
+            <select id="location" value={props.location.value} onChange={props.locationChange}>
                 <option>Inside</option>
                 <option>Outside</option>
             </select>
-            {props.location === "" ? <LocationNotSelected/> : null}
+            {(props.location.value === "" && props.location.isTouched === true) ? <LocationNotSelected/> : null}
             </div>
 
-            <input className="submit" type="submit" value="Make Your Reservation!" disabled={!isFormValid()} />
+            <input className="submit" type="submit" value="Make Your Reservation!" />
         </form>
         </div>
         </div>

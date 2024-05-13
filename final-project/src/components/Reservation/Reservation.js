@@ -20,9 +20,9 @@ function Reservation() {
     const navigate = useNavigate();
 
     const [date, setDate] = useState(new Date());
-    const [time, setTime] = useState("Select a time");
-    const [guests, setGuests] = useState("");
-    const [location, setLocation] = useState("");
+    const [time, setTime] = useState({value: "Select a time", isTouched: false});
+    const [guests, setGuests] = useState({value: "", isTouched: false});
+    const [location, setLocation] = useState({value: "Inside", isTouched: false});
 
     const [availableTimes, updateAvailabilities] = useReducer(availableUpdate, {times: generateAvailabilities(date)});
 
@@ -34,19 +34,19 @@ function Reservation() {
       }
 
     const timeChange = (e) => {
-        setTime(e.target.value)
+        console.log(e);
+        setTime({value: e.target.value, isTouched: true})
     }
 
     const guestsChange = (e) => {
-        setGuests(e.target.value)
+        setGuests({value: e.target.value, isTouched: true})
     }
 
     const locationChange = (e) => {
-        setLocation(e.target.value)
+        setLocation({value: e.target.value, isTouched: true})
     }
 
     const handleSubmit = (e) => {
-        e.preventDefault();
         if(fakeAPI.submitAPI(e)) {
             navigate('/confirmedreservation');
         }
