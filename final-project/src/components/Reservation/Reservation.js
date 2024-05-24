@@ -3,6 +3,7 @@ import BookingForm from "./BookingForm.js";
 import LemonMap from "./LemonMap.js";
 import fakeAPI from './Script.js';
 import { useNavigate } from 'react-router-dom';
+import { useEffect } from 'react';
 
 const generateAvailabilities = (date) => {
     return fakeAPI.fetchAPI(date);
@@ -16,6 +17,11 @@ const availableUpdate = (state, action) => {
 }
 
 function Reservation() {
+
+    useEffect(() => {
+        document.title = "Book your table now!"
+      }, []);
+
 
     const navigate = useNavigate();
 
